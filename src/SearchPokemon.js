@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import './App.css';
-const App = () => {
+const SearchPokemon = () => {
     const [pokemon, setPokemon] = useState("");
     const [pokeData, setData] = useState([]);
     const [pokeType, setType] = useState("");
@@ -40,7 +40,7 @@ const App = () => {
             {pokeData.map((data) => {
                 return (
                     <div className="container">
-                        <img/>
+                        <img src={data.sprites["front_default"]}/>
                         <div className="divTable">
                             <div className="divTableBody"></div>
 
@@ -65,4 +65,4 @@ const App = () => {
         </div>
     );
 };
-export default App;
+export default SearchPokemon;
