@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import SearchPokemon from './SearchPokemon';
 import reportWebVitals from './reportWebVitals';
+import AllPokemon from "./AllPokemon";
 
 ReactDOM.render(
   <React.StrictMode>
     <SearchPokemon />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('SearchedPokemon')
+);
+ReactDOM.render(
+    <React.StrictMode>
+        <AllPokemon />
+    </React.StrictMode>,
+    document.getElementById('AllPokemon')
 );
 
 
