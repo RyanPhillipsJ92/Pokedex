@@ -20,11 +20,6 @@ const AllPokemon = () => {
                 const resAll = await axios.get(urlAll);
                 toArray.push(resAll.data);
                 setData(toArray)
-                console.log(resAll.data.types[0].type.name)
-                // console.log("Name: " + resAll.data.name +
-                //     ", Height: " + Math.round(resAll.data.height * 3.9) +
-                //     ", Weight: " + Math.round(resAll.data.weight / 4.3))
-
             }
             // console.log(res)
         } catch (e) {
@@ -61,7 +56,7 @@ const AllPokemon = () => {
                                                 <div className="card-body">
                                                     <h3 className="card-title">{" "}{capFirstLetter(data.name)}</h3>
                                                     <p className="card-text">Pokédex #{" "}{data.id}</p>
-                                                    <p className="card-text">Type: {" "}{data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1) }</p>
+                                                    <p className="card-text" id="pokemonType" datatype={data.types[0].type.name}>Type: {" "}{data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1) }</p>
                                                     <p className="card-text">Height: {" "}{Math.round(data.height * 3.9)}"</p>
                                                     <p className="card-text">Weight: {" "}{Math.round(data.weight / 4.3)} lbs</p>
                                                 </div>

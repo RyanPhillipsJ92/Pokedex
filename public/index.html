@@ -57,3 +57,21 @@
             crossorigin="anonymous"></script>
   </body>
 </html>
+
+<script>
+  document.body.onload = function() {
+    console.log("loaded");
+    document.getElementById("pokemonType").each = function (){
+      if(this.getAttribute("data-type").toLowerCase() ==="grass"){
+        (this).css("background", "green");
+      }else if (this.getAttribute("data-type").toLowerCase() ==="fire") {
+        (this).css("background", "red");
+      }else if (this.getAttribute("data-type").toLowerCase() ==="water") {
+        (this).css("background", "blue");
+      }else {
+        (this).css("background", "grey");
+    }
+
+    }
+}
+</script>

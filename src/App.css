@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+#pkmn-srch{
+/*  max-height: 40em;*/
+/*  max-width: 36em;*/
+}
+/*#pkmn{*/
+/*  max-height: 20em;*/
+/*  max-width: 18em;*/
+/*}*/
+.card-img-top{
+  object-fit: contain;
+  width: 6em;
+  margin: auto;
+}
