@@ -19,12 +19,11 @@ const AllPokemon = () => {
                 const urlAll = `https://pokeapi.co/api/v2/pokemon/${name}`;
                 const resAll = await axios.get(urlAll);
                 toArray.push(resAll.data);
-                setType(resAll.data.types[0].type.name)
                 setData(toArray)
-
-                console.log("Name: " + resAll.data.name +
-                    ", Height: " + Math.round(resAll.data.height * 3.9) +
-                    ", Weight: " + Math.round(resAll.data.weight / 4.3))
+                console.log(resAll.data.types[0].type.name)
+                // console.log("Name: " + resAll.data.name +
+                //     ", Height: " + Math.round(resAll.data.height * 3.9) +
+                //     ", Weight: " + Math.round(resAll.data.weight / 4.3))
 
             }
             // console.log(res)
@@ -42,7 +41,6 @@ const AllPokemon = () => {
         });
 
     }, []);
-    console.log(pokemon)
 
         return (
             <div className="App">
@@ -51,28 +49,28 @@ const AllPokemon = () => {
                         <div className="card-header text-center">
                             The Original 150 Pokémon
                         </div>
-                        <div className="card-body">
-                            {pokeData.map((data) => {
-                                return (
-                                    <div className="container-fluid">
-                                        <div className="row">
-                                            <div className="col-12 col-md-6 col-lg-4" id="pkmn-srch">
-                                                <div className="card" id="pkmn">
-                                                    <img className="card-img-top" src={data.sprites["front_default"]}
-                                                         alt={capFirstLetter(data.name)}/>
-                                                    <div className="card-body">
-                                                        <h3 className="card-title">{" "}{capFirstLetter(data.name)}</h3>
-                                                        <p className="card-text">Pokédex #{" "}{data.id}</p>
-                                                        <p className="card-text">Type: {" "}{capFirstLetter(pokeType)}</p>
-                                                        <p className="card-text">Height: {" "}{Math.round(data.height * 3.9)}"</p>
-                                                        <p className="card-text">Weight: {" "}{Math.round(data.weight / 4.3)} lbs</p>
-                                                    </div>
+                        <div className="pokemon-body">
+                            <div className="container">
+                                <div className="row row-cols-3">
+                                {pokeData.map((data) => {
+                                    return (
+                                        <div className="col-12 col-md-6 col-lg-4" id="pkmn-srch">
+                                            <div className="card" id="pkmn">
+                                                <img className="card-img-top" src={data.sprites["front_default"]}
+                                                     alt={capFirstLetter(data.name)}/>
+                                                <div className="card-body">
+                                                    <h3 className="card-title">{" "}{capFirstLetter(data.name)}</h3>
+                                                    <p className="card-text">Pokédex #{" "}{data.id}</p>
+                                                    <p className="card-text">Type: {" "}{data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1) }</p>
+                                                    <p className="card-text">Height: {" "}{Math.round(data.height * 3.9)}"</p>
+                                                    <p className="card-text">Weight: {" "}{Math.round(data.weight / 4.3)} lbs</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            })}
+                                    )
+                                })}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
